@@ -1,0 +1,29 @@
+.backdrop{
+    height: 70dvh;
+    width: 100dvw;
+    display: flex;
+    justify-content: center;
+}
+
+.image{
+    height: 100%;
+    width: 100%;
+    background-color: #1b1b1b;
+}
+
+.backdrop img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 0;
+    filter: brightness(36%);
+    -webkit-filter: brightness(36%);
+    -moz-filter: brightness(36%);
+}
+
+@media only screen and (max-width: 600px){
+    .image{
+        height: 50%;
+        width: 100%;
+    }
+}
