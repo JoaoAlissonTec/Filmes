@@ -16,9 +16,9 @@
     width: 100%;
     object-fit: cover;
     object-position: center 0;
-    filter: brightness(36%);
-    -webkit-filter: brightness(36%);
-    -moz-filter: brightness(36%);
+    filter: brightness(20%);
+    -webkit-filter: brightness(20%);
+    -moz-filter: brightness(20%);
 }
 
 @media only screen and (max-width: 600px){

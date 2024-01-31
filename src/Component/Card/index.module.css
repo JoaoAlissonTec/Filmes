@@ -6,8 +6,7 @@
     cursor: pointer;
 }
 
-.film_container h1{
-    font-size: 1.2em;
+.main h1{
     text-overflow: ellipsis;
     display: -webkit-box;
     overflow: hidden;
@@ -19,13 +18,11 @@
     margin-top: .5em;
 }
 
-.film_container h1:hover{
+.main h1:hover{
     color: #D44D5C;
 }
 
 .image{
-    height: 250px;
-    min-width: 166.66px;
     border-radius: 5px;
     background-color: #1b1b1b;
     position: relative;
@@ -36,3 +33,20 @@
     border-radius: 5px;
     user-select: none;
 }
+
+@media only screen and (max-width: 600px){
+
+    .film_container{
+        margin: 0;
+    }
+
+    .image img{
+        height: 200px;
+    }
+
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  }

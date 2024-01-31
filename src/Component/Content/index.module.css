@@ -43,6 +43,12 @@
     font-size: 0.9em;
 }
 
+.casts{
+    display: flex;
+    overflow: auto;
+    padding: 0 2em;
+}
+
 @media only screen and (max-width: 600px){
     .content{
         background-position: center;
@@ -54,7 +60,7 @@
     }
 
     .poster{
-        height: 300px;
+        height: 250px;
         max-width: 200px;
         margin-right: 0;
     }

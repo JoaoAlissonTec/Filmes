@@ -1,6 +1,7 @@
+import Avatar from '../Avatar'
 import styles from './index.module.css'
 
-export default function Content({title, overview, poster_path, release_date, backdrop_path}){
+export default function Content({title, overview, poster_path, release_date, backdrop_path, casts}){
 
     const data = new Date(release_date)
 
@@ -17,6 +18,9 @@ export default function Content({title, overview, poster_path, release_date, bac
                     <span>{data.toLocaleDateString()}</span>
                     <p>{overview}</p>
                 </div>
+            </div>
+            <div className={styles.casts}>
+                {casts.slice(0, 6).map((cast)=><Avatar name={cast.name} img={cast.profile_path}/>)}
             </div>
         </div>
     )

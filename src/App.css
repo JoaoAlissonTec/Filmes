@@ -4,3 +4,17 @@
   color: white;
   overflow-x: hidden;
 }
+
+@media only screen and (max-width: 600px){
+  p{
+    font-size: 0.7em;
+  }
+
+  h1{
+    font-size: 1.4em;
+  }
+
+  span{
+    font-size: 0.5em;
+  }
+}

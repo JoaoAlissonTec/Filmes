@@ -1,11 +1,16 @@
 .container{
     padding: 1em;
+    margin-top: 10px;
 }
 
 .section_container{
     display: flex;
     overflow: auto;
     padding: 1em .5em 2em .5em;
+}
+
+.container h1{
+    font-size: 1.2em;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,4 +26,19 @@
 ::-webkit-scrollbar-thumb {
     background: #D44D5C;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px){
+
+    h1{
+        text-align: center;
+    }
+
+    .section_container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(auto, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 5px;
+    }    
 }
