@@ -19,8 +19,11 @@ export default function Content({title, overview, poster_path, release_date, bac
                     <p>{overview}</p>
                 </div>
             </div>
-            <div className={styles.casts}>
-                {casts.slice(0, 6).map((cast)=><Avatar name={cast.name} img={cast.profile_path}/>)}
+            <div className={styles.castsContainer}>
+                <h1>Elenco</h1>
+                <div className={styles.casts}>
+                    {casts.slice(0, 6).map((cast)=><Avatar name={cast.name} img={cast.profile_path} key={cast.id}/>)}
+                </div>
             </div>
         </div>
     )

@@ -8,7 +8,7 @@
 
 .effect{
     display: flex;
-    padding: 2em;
+    padding: 1em 2em;
     width: 100%;
     height: 100%;
 }
@@ -35,6 +35,7 @@
 }
 
 .text h1{
+    font-size: 1.5em;
     color: #D44D5C;
 }
 
@@ -43,10 +44,17 @@
     font-size: 0.9em;
 }
 
+.castsContainer{
+    padding: 0 2em;
+}
+
+.castsContainer h1{
+    font-size: 1.5em;
+}
+
 .casts{
     display: flex;
     overflow: auto;
-    padding: 0 2em;
 }
 
 @media only screen and (max-width: 600px){

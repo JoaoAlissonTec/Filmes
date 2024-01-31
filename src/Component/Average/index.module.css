@@ -8,6 +8,10 @@
     right: -5px;
 }
 
+.average p{
+    margin: 0;
+}
+
 .average svg{
     color: yellow;
     font-size: .8em;
