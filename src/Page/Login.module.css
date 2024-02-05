@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70dvh;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50dvh;
+}
+
+.form h1{
+    margin-bottom: 35px;
+}
+
+.form input{
+    margin-bottom: 10px;
+}
+
+.form button{
+    margin-top: 20px;
+}

@@ -1,0 +1,14 @@
+.container{
+    padding: 1em;
+}
+
+.userCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 70dvh;
+    width: 30%;
+    padding: 1em;
+    background-color: blue;
+}

@@ -22,3 +22,13 @@
     height: 100%;
     color: #383838;
 }
+
+.avatar.user{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.avatar.user img{
+    border-radius: 100px;
+}
