@@ -1,4 +1,14 @@
 .button{
     width: 100%;
     border: none;
+    background-color: #D44D5C;
+    color: white;
+    border-radius: 5px;
+}
+
+.secondary{
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5em;
 }

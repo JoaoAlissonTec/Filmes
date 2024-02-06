@@ -7,8 +7,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 70dvh;
-    width: 30%;
+    width: 20%;
     padding: 1em;
-    background-color: blue;
+}
+
+.userCard h1{
+    font-size: 1.5em;
+    color: #D44D5C;
+}
+
+.about{
+    width: 100%;
+    margin-top: 70px;
+}
+
+.about button{
+    margin-top: 50px;
 }

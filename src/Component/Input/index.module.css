@@ -1,4 +1,30 @@
 .input{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+}
+
+.input input{
+    outline: none;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    border: 1px solid #8a8a8a;
+    background-color: transparent;
+    width: 300px;
+    color: white;
+}
+
+.input input::placeholder{
+    color: #424242;
+}
+
+.input label{
+    color: #8a8a8a;
+}
+
+.input input:focus{
+    border: 1px solid #D44D5C;
+}
+
+.input input:focus + label{
+    color: #D44D5C;
 }

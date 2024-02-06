@@ -13,9 +13,10 @@ function App() {
 
     const [filmes, setFilmes] = useState([])
     const [topFilmes, setTopFilmes] = useState([])
-    const [token, setToken] = useState("")
     const [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ?? null)
-  
+    const [sessionId, setSessionId] = useState()
+    const [error, setError] = useState()
+
     useEffect(()=>{
       axios.all([
         api.get("/discover/movie?include_adult=false&include_video=false&language=pt-BR&page=1&sort_by=popularity.desc"),
@@ -25,25 +26,39 @@ function App() {
         setTopFilmes(topRes.data.results)
       })).catch((err)=>console.log(err))
 
-      localStorage.setItem("account", JSON.stringify(account))
+      //localStorage.setItem("account", JSON.stringify(account))
     }, [account])  
 
-    const getToken = () =>{
-      api.get("/authentication/token/new")
-      .then((response)=>setToken(response.data.request_token))
-      .catch((err)=>console.log(err))
-    }
+    const handleLogin = async(user, password)=>{
 
-  function handleLogin(user, password){
-      getToken()
-      const loginJson = {"username":user, "password":password, "request_token":token}
-      api.post("/authentication/token/validate_with_login", loginJson)
-      .then()
+      let t = ""
+      let session_id = ""
+      let error = ""
+      
+      await api.get("/authentication/token/new")
+      .then((response)=>t = response.data.request_token)
       .catch((err)=>console.log(err))
 
-      api.get("/account")
-      .then((response)=>setAccount(response.data))
-      .catch((err)=>console.log(err))
+      await api.post("/authentication/token/validate_with_login", {"username":user, "password":password, "request_token":t})
+      .then((response)=>t = response.data.request_token)
+      .catch((err)=>{
+        error = JSON.parse(err.request.response).status_message
+        setError(JSON.parse(err.request.response).status_message)
+      })
+      if(error === ""){
+        await api.post("/authentication/session/new", {"request_token":t})
+        .then((response)=>{
+          session_id = response.data.session_id
+          setSessionId(session_id)
+        })
+        .catch((err)=>console.log(err))
+
+        api.get("/account?session_id="+session_id)
+        .then((response)=>{
+            setAccount(response.data)
+        })
+        .catch((err)=>console.log(err))
+      }
   }
 
   return (
@@ -53,8 +68,8 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home filmes={filmes} topFilmes={topFilmes}/>}/>
           <Route path='/filme/:id' element={<Filme/>}/>
-          <Route exact path='/login' element={<Login handleLogin={handleLogin}/>}/>
-          <Route exact path='/user' element={<User account={account}/>}/>
+          <Route exact path='/login' element={<Login handleLogin={handleLogin} error={error}/>}/>
+          <Route exact path='/user' element={<User account={account} setAccount={setAccount} sessionId={sessionId}/>}/>
         </Routes>
       </div>
     </Router>
