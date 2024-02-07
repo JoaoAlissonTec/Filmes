@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import Slider from "../Component/Slider";
 
-export default function Home({filmes, topFilmes}){
+export default function Home({filmes, topFilmes, accountId}){
 
     const navigate = useNavigate()
   
     function onSelectMovie(movie){
-      const state = {movieId:movie.id}
+      const state = {movieId:movie.id, accountId:accountId}
       navigate("/filme/"+movie.title, {state})
     }
 

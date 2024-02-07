@@ -15,7 +15,7 @@ function App() {
     const [topFilmes, setTopFilmes] = useState([])
     const [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ?? null)
     const [sessionId, setSessionId] = useState()
-    const [error, setError] = useState()
+    const [isLoadLogin, setIsLoadLogin] = useState(false)
 
     useEffect(()=>{
       axios.all([
@@ -34,7 +34,7 @@ function App() {
       let t = ""
       let session_id = ""
       let error = ""
-      
+
       await api.get("/authentication/token/new")
       .then((response)=>t = response.data.request_token)
       .catch((err)=>console.log(err))
@@ -43,7 +43,6 @@ function App() {
       .then((response)=>t = response.data.request_token)
       .catch((err)=>{
         error = JSON.parse(err.request.response).status_message
-        setError(JSON.parse(err.request.response).status_message)
       })
       if(error === ""){
         await api.post("/authentication/session/new", {"request_token":t})
@@ -53,12 +52,14 @@ function App() {
         })
         .catch((err)=>console.log(err))
 
-        api.get("/account?session_id="+session_id)
+        await api.get("/account?session_id="+session_id)
         .then((response)=>{
             setAccount(response.data)
         })
         .catch((err)=>console.log(err))
       }
+
+      return error
   }
 
   return (
@@ -66,9 +67,9 @@ function App() {
       <div className='App'>
         <Navbar account={account}/>
         <Routes>
-          <Route exact path='/' element={<Home filmes={filmes} topFilmes={topFilmes}/>}/>
-          <Route path='/filme/:id' element={<Filme/>}/>
-          <Route exact path='/login' element={<Login handleLogin={handleLogin} error={error}/>}/>
+          <Route exact path='/' element={<Home filmes={filmes} topFilmes={topFilmes} accountId={account && account.id}/>}/>
+          <Route path='/filme/:id' element={<Filme sessionId={sessionId}/>}/>
+          <Route exact path='/login' element={<Login handleLogin={handleLogin} isLoadLogin={isLoadLogin} setIsLoadLogin={setIsLoadLogin}/>}/>
           <Route exact path='/user' element={<User account={account} setAccount={setAccount} sessionId={sessionId}/>}/>
         </Routes>
       </div>

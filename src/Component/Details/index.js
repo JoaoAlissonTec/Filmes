@@ -1,6 +1,7 @@
 import styles from './index.module.css'
 
 export default function Details({selectedMovie}){
+
     return(
         <div id="about" className={styles.details_container}>
             <div className={styles.backdrop}>

@@ -1,5 +1,7 @@
 .container{
     padding: 1em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .userCard{
@@ -23,4 +25,8 @@
 
 .about button{
     margin-top: 50px;
+}
+
+.sections{
+    width: 75%;
 }

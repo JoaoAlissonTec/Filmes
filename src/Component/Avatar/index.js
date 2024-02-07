@@ -15,7 +15,7 @@ export default function Avatar({name, img, dynamicClass}){
     <div className={styles.info}>
       <OverlayTrigger placement='top' delay={{show:100, hide:0}} overlay={renderTooltip}>
         <div className={`${styles.avatar} ${styles[dynamicClass]}`}>
-          {img != null ? <img src={"https://image.tmdb.org/t/p/w100_and_h100_face"+img} alt={name}/>:<MdPerson/>}
+          {img != null ? <img src={"https://image.tmdb.org/t/p/w185"+img} alt={name}/>:<MdPerson/>}
         </div>
       </OverlayTrigger>
     </div>

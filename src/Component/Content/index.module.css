@@ -44,6 +44,16 @@
     font-size: 0.9em;
 }
 
+.options{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.options svg{
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
 .castsContainer{
     padding: 0 2em;
 }
