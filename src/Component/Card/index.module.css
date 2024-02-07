@@ -42,6 +42,7 @@
 
     .film_container{
         margin: 0;
+        align-items: center;
     }
 
     .image img{

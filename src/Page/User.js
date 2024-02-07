@@ -26,6 +26,8 @@ export default function User({account, setAccount, sessionId}){
         api.delete("/authentication/session", data)
         .then(()=>{
             navigate("/")
+            localStorage.removeItem("account")
+            localStorage.removeItem("session_id")
             setAccount(null)
         })
         .catch((err)=>console.log(err))        

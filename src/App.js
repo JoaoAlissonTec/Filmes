@@ -26,8 +26,9 @@ function App() {
         setTopFilmes(topRes.data.results)
       })).catch((err)=>console.log(err))
 
-      //localStorage.setItem("account", JSON.stringify(account))
-    }, [account])  
+      setAccount(JSON.parse(localStorage.getItem("account")))
+      setSessionId(localStorage.getItem("session_id"))
+    }, [])  
 
     const handleLogin = async(user, password)=>{
 
@@ -55,6 +56,8 @@ function App() {
         await api.get("/account?session_id="+session_id)
         .then((response)=>{
             setAccount(response.data)
+            localStorage.setItem("account", JSON.stringify(response.data))
+            localStorage.setItem("session_id", session_id)
         })
         .catch((err)=>console.log(err))
       }

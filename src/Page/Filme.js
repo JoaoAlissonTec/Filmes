@@ -18,13 +18,12 @@ export default function Filme({sessionId}){
     const accountId = location.state.accountId
     
     useEffect(()=>{
-        if(sessionId !== undefined){
+        if(sessionId !== undefined && sessionId !== null){
             axios.all([
                 api.get("/movie/"+movieId+"?language=pt-BR"),
                 api.get("https://api.themoviedb.org/3/movie/"+movieId+"/credits?language=pt-BR"),
                 api.get("/movie/"+movieId+"/account_states?session_id="+sessionId)
             ]).then(axios.spread((movieRes, castRes, stateRes)=>{
-                console.log(castRes.data.cast)
                 setMovie(movieRes.data)
                 setCasts(castRes.data.cast)
                 setFavorite(stateRes.data.favorite)
@@ -35,7 +34,6 @@ export default function Filme({sessionId}){
                 api.get("/movie/"+movieId+"?language=pt-BR"),
                 api.get("https://api.themoviedb.org/3/movie/"+movieId+"/credits?language=pt-BR")
             ]).then(axios.spread((movieRes, castRes)=>{
-                console.log(castRes.data.cast)
                 setMovie(movieRes.data)
                 setCasts(castRes.data.cast)
                 setIsLoad(false)

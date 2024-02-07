@@ -11,6 +11,7 @@
     background-color: transparent;
     width: 300px;
     color: white;
+    transition: 0.3s;
 }
 
 .input input::placeholder{
@@ -19,6 +20,7 @@
 
 .input label{
     color: #8a8a8a;
+    transition: 0.3s;
 }
 
 .input input:focus{
