@@ -6,7 +6,7 @@ import api from "../services/api";
 import { useEffect, useState } from "react";
 import Section from "../Component/Section";
 
-export default function User({account, setAccount, sessionId}){
+export default function User({account, setAccount, sessionId, setSessionId}){
 
     const navigate = useNavigate();
     const [favorites, setFavorites] = useState([])
@@ -28,6 +28,7 @@ export default function User({account, setAccount, sessionId}){
             navigate("/")
             localStorage.removeItem("account")
             localStorage.removeItem("session_id")
+            setSessionId(null)
             setAccount(null)
         })
         .catch((err)=>console.log(err))        

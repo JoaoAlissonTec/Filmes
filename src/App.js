@@ -73,7 +73,7 @@ function App() {
           <Route exact path='/' element={<Home filmes={filmes} topFilmes={topFilmes} accountId={account && account.id}/>}/>
           <Route path='/filme/:id' element={<Filme sessionId={sessionId}/>}/>
           <Route exact path='/login' element={<Login handleLogin={handleLogin} isLoadLogin={isLoadLogin} setIsLoadLogin={setIsLoadLogin}/>}/>
-          <Route exact path='/user' element={<User account={account} setAccount={setAccount} sessionId={sessionId}/>}/>
+          <Route exact path='/user' element={<User account={account} setAccount={setAccount} sessionId={sessionId} setSessionId={setSessionId}/>}/>
         </Routes>
       </div>
     </Router>
