@@ -5,6 +5,7 @@ import styles from './User.module.css'
 import api from "../services/api";
 import { useEffect, useState } from "react";
 import Section from "../Component/Section";
+import {MdExitToApp} from 'react-icons/md';
 
 export default function User({account, setAccount, sessionId, setSessionId}){
 
@@ -46,7 +47,10 @@ export default function User({account, setAccount, sessionId, setSessionId}){
                 <div className={styles.about}>
                     <h1>Usuário</h1>
                     <p>{account && account.username}</p>
-                    <Button text="Sair" onClick={handleExit} dynamicClass="secondary"/>
+                    <Button onClick={handleExit} dynamicClass="secondary">
+                        <MdExitToApp/>
+                        <span>Sair</span>
+                    </Button>
                 </div>
             </div>
             <div className={styles.sections}>

@@ -8,7 +8,23 @@
 
 .secondary{
     background-color: transparent;
-    border-radius: 0;
-    border-bottom: 1px solid white;
-    padding-bottom: 0.5em;
+    border: 1px solid white;
+    padding-bottom: .5em;
+}
+
+.secondary span{
+    font-size: .8em;
+    margin-left: 1.2em;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px){
+
+    .secondary{
+        width: 50%;
+    }
+
+    .secondary span{
+        font-size: .8em;
+    }
 }

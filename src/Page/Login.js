@@ -31,7 +31,9 @@ export default function Login({handleLogin, isLoadLogin, setIsLoadLogin}){
                 <h1>Login</h1>
                 <Input id="username" title="Usuário" type="text" placeholder="Digite o seu usuário" onChange={(e)=>setUser(e.target.value)} value={user}/>
                 <Input id="password" title="Senha" type="password" placeholder="Digite a sua senha" onChange={(e)=>setPassword(e.target.value)} value={password}/>
-                <Button text="Entrar" onClick={redirectLogin} isLoad={isLoadLogin}/>
+                <Button onClick={redirectLogin} isLoad={isLoadLogin}>
+                    Entrar
+                </Button>
             </div>
             {error && <Alert style={{position:"absolute", top: 10, right: 10}} onClose={()=>setError("")} dismissible variant="danger">
                     {error}

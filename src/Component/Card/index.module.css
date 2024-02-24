@@ -45,8 +45,12 @@
         align-items: center;
     }
 
+    .main h1{
+        display: none;
+    }
+
     .image img{
-        height: 200px;
+        height: 150px;
     }
 
     .main{

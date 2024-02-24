@@ -45,8 +45,16 @@
         align-items: center;
     }
 
+    .userCard p{
+        font-size: 1em;
+    }
+
     .about{
         margin-top: 30px;
         text-align: center;
+    }
+
+    .sections{
+        width: 95%;
     }
 }
