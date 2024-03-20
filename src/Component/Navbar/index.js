@@ -5,6 +5,7 @@ import Avatar from "../Avatar";
 export default function Navbar({account}){
     return(
         <div className={styles.navbar}>
+            <img src="/logo192.png" alt="logo" className={styles.logo}></img>
             <ul className={styles.nav_itens}>
                 <li className={styles.item}><NavLink to="/" style={({isActive})=>isActive?{color: "#D44D5C"}:undefined}>Home</NavLink></li>
                 <li className={styles.item}><NavLink to="*" style={({isActive})=>isActive?{color: "#D44D5C"}:undefined}>Filmes</NavLink></li>
